@@ -1,0 +1,15 @@
+<resources>
+    <string name="AddBuckBtnLbl">Add A Buck</string>
+    <string name="app_name">Tip Calculator</string>
+    <string name="ExitBtnLbl">EXIT</string>
+    <string name="NoRoundingBtnLbl">None</string>
+    <string name="PercentFldTitle">%</string>
+    <string name="PostDiscAmtTitle">Amount after discount:</string>
+    <string name="PreDiscAmtTitle">Amount before discount:</string>
+    <string name="RoundingLbl">Rounding</string>
+    <string name="RoundDownBtnLbl">Round Down</string>
+    <string name="RoundUpBtnLbl">Round Up</string>
+    <string name="TakeBuckBtnLbl">Take A Buck</string>
+    <string name="TipLbl">Tip:</string>
+    <string name="TotalLbl">Total:</string>
+</resources>
