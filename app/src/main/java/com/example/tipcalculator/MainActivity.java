@@ -10,6 +10,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -32,13 +33,20 @@ public class MainActivity extends AppCompatActivity  {
     private Button addABuckBtn;
     private Button exitBtn;
     private Button takeABuckBtn;
+
+    private CheckBox cashCB;
+
     private EditText postDiscountAmtFld;
     private EditText preDiscountAmtFld;
+
     private RadioGroup radioBtns;
+
     private RadioButton noRoundBtn;
     private RadioButton roundDownBtn;
     private RadioButton roundUpBtn;
+
     private SeekBar tipPercentSlider;
+
     private TextView tipAmtFld;
     private TextView tipPercentageFld;
     private TextView totalAmtFld;
@@ -94,6 +102,18 @@ public class MainActivity extends AppCompatActivity  {
                     takeABuckBtn.setEnabled(true);
                 }
 
+                try {
+                    CalculateTip();
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        });
+
+        cashCB.setOnClickListener( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
                 try {
                     CalculateTip();
                 } catch (ParseException e) {
@@ -327,15 +347,44 @@ public class MainActivity extends AppCompatActivity  {
 
         tip += extraBucks;
 
-        if (tip < 0.0) {
-            tip        = 0.0;
-            extraBucks = 0;
+        if (true == cashCB.isChecked()) {
+            switch (tipRoundingMode) {
+                case NOROUNDING: {
+                    // All that needs to be done has been done.
+                }
+                break;
+
+                case ROUNDDOWN: {
+                    long  iPart  = (long) tip.doubleValue();
+
+                    tip = (double) iPart;
+                }
+                break;
+
+                case ROUNDUP: {
+                    long  iPart  = (long) tip.doubleValue();
+                    double fPart = tip - iPart;
+
+                    if (fPart > 0.0) {
+                        tip = (double) iPart + 1;
+                    }
+                }
+                break;
+
+                default: {
+
+                }
+                break;
+            }
+
+            tipAmtFld.setText(format(Locale.US, "%.2f", tip));
+            totalAmtFld.setText(postDiscountAmtFld.getText());
+        } else {
+            total = postDiscAmt.doubleValue() + tip;
+
+            tipAmtFld.setText(format(Locale.US, "%.2f", tip));
+            totalAmtFld.setText(format(Locale.US, "%.2f", total));
         }
-
-        total = postDiscAmt.doubleValue() + tip;
-
-        tipAmtFld.setText(format(Locale.US,"%.2f", tip));
-        totalAmtFld.setText(format(Locale.US, "%.2f", total));
     }
 
     private void Init() {
@@ -350,6 +399,7 @@ public class MainActivity extends AppCompatActivity  {
         extraBucks = 0;
 
         addABuckBtn        = (Button)findViewById(R.id.B_AddABuck);
+        cashCB             = (CheckBox)findViewById(R.id.CB_Cash);
         exitBtn            = (Button)findViewById(R.id.B_Exit);
         noRoundBtn         = (RadioButton)findViewById(R.id.RB_NoRound);
         radioBtns          = (RadioGroup)findViewById(R.id.RG_RoundingBtns);

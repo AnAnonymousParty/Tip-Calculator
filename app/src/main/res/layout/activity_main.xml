@@ -90,23 +90,32 @@
         </LinearLayout>
 
         <LinearLayout
+            android:background="@drawable/roundedborder"
             android:gravity="center|top"
-            android:layout_height="120dp"
+            android:layout_height="100dp"
             android:layout_width="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:text="@string/RoundingLbl" />
 
             <LinearLayout
                 android:gravity="center|top"
                 android:layout_gravity="center"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 android:layout_width="match_parent"
                 android:orientation="horizontal">
 
                 <RadioGroup
                     android:gravity="center"
                     android:id="@+id/RG_RoundingBtns"
-                    android:layout_height="80dp"
-                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_width="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
@@ -128,61 +137,98 @@
                         android:text="@string/RoundUpBtnLbl" />
                 </RadioGroup>
             </LinearLayout>
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/RoundingLbl" />
         </LinearLayout>
 
+        <!-- Total/Tip section -->
         <LinearLayout
             android:gravity="center|top"
-            android:layout_height="50dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:gravity="left|center_vertical"
+                android:layout_height="100dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="0dp"
                 android:layout_width="wrap_content"
-                android:text="@string/TipLbl"
-                android:textColor="#FF7F00" />
+                android:orientation="horizontal">
 
-            <TextView
-                android:ems="10"
-                android:id="@+id/ET_TipAmt"
-                android:layout_marginLeft="5dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0"
-                android:layout_width="80dp"
-                android:textColor="#FF7F00"
-                android:width="80dp" />
+                <CheckBox
+                    android:gravity="left|center_vertical"
+                    android:id="@+id/CB_Cash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="wrap_content"
+                    android:text="@string/CashLbl" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:gravity="right|top"
+                android:layout_height="100dp"
+                android:layout_marginTop="0dp"
+                android:layout_width="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Tip sub-section -->
+                <LinearLayout
+                    android:gravity="center|top"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="19dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/TipLbl"
+                        android:textColor="#FF7F00" />
+
+                    <TextView
+                        android:ems="10"
+                        android:id="@+id/ET_TipAmt"
+                        android:layout_marginLeft="5dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:layout_width="80dp"
+                        android:textColor="#FF7F00"
+                        android:width="80dp" />
+                </LinearLayout>
+
+                <!-- Total sub-section -->
+                <LinearLayout
+                    android:gravity="center|top"
+                    android:layout_height="50dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:text="@string/TotalLbl"
+                        android:textColor="#00FF00" />
+
+                    <TextView
+                        android:ems="10"
+                        android:id="@+id/ET_TotalAmt"
+                        android:inputType="none"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="0"
+                        android:layout_width="80dp"
+                        android:textColor="#00FF00"
+                        android:width="80dp"
+                         />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:gravity="center|top"
-            android:layout_height="50dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/TotalLbl"
-                android:textColor="#00FF00" />
-
-            <TextView
-                android:ems="10"
-                android:id="@+id/ET_TotalAmt"
-                android:inputType="none"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_weight="0"
-                android:layout_width="80dp"
-                android:textColor="#00FF00"
-                android:width="80dp"
-                 />
-        </LinearLayout>
-
+        <!-- Add/Tak Buttons section -->
         <LinearLayout
             android:gravity="center|top"
             android:layout_height="50dp"
@@ -206,10 +252,12 @@
                 android:text="@string/TakeBuckBtnLbl" />
         </LinearLayout>
 
+        <!-- Exit Button section -->
         <LinearLayout
-            android:gravity="center|top"
+            android:gravity="center|bottom"
+            android:layout_gravity="bottom"
             android:layout_height="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="80dp"
             android:layout_width="match_parent"
             android:orientation="horizontal">
 

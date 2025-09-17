@@ -1,6 +1,7 @@
 <resources>
     <string name="AddBuckBtnLbl">Add A Buck</string>
     <string name="app_name">Tip Calculator</string>
+    <string name="CashLbl">Cash</string>
     <string name="ExitBtnLbl">EXIT</string>
     <string name="NoRoundingBtnLbl">None</string>
     <string name="PercentFldTitle">%</string>
